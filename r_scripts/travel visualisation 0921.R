@@ -5,14 +5,14 @@ install.packages("renv")
 library(renv)
 #renv::init() #useed when started collecting packages, not used after initial set up. make functioning line if required
 
-#Install packages required (may not be if RENV has worked but uncomment if needed)
-#install.packages('here')
-#install.packages('tidyverse')
-#install.packages('readxl')
-#install.packages('plotly') 
-#install.packages('htmlwidgets') 
-#tinytex::install_tinytex()
-#renv::snapshot() #puts into the RENV folder for future use, snapshot after each new package
+#Install packages required #(may not be if RENV has worked but uncomment if needed)
+install.packages('here')
+install.packages('tidyverse')
+install.packages('readxl')
+install.packages('plotly') 
+install.packages('htmlwidgets') 
+tinytex::install_tinytex()
+renv::snapshot() #puts into the RENV folder for future use, snapshot after each new package
 
 #Libraries
 renv::restore()

@@ -11,7 +11,7 @@ The aim of this project is to better understand whether there were any changes i
 
 ##Key research question
 
-**Is travel from the UK in 2021 similar to travel in 2009?**
+**Has travel from the UK changed over time?**
 
 #What is the data source for this project?
 
@@ -42,12 +42,9 @@ A full codebook describing the variables from the origional dataset and any calc
 The following packages were used in this project:
 
 ```{r, message=FALSE, warning=FALSE, results="hide"}
-#Using RENV to keep same package versions
-install.packages("renv")
-library(renv)
 
-#Libraries
 renv::restore()
+#Libraries
 library(here)#Here for loading in the data
 library(tidyverse)#Tidyverse for data management
 library(ggplot2) #chart making
