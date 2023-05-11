@@ -1,0 +1,40 @@
+---
+title: "PSY6422 Data Management and Visualisation"
+author: '220225650'
+date: "2023-05-04"
+#output: pdf_document
+#output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Background 
+
+#Project Aims
+## Research question
+
+#Data Origins
+##Why was this data chosen? 
+## Codebook for both data sets
+##Codebook for the rest of the project can be found...?
+
+#Data Preperation
+##Loading Packages and RENV
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+###What version of packages
+
+##Cleaning the data - removing explanatory rows and columns that are not required
+##Combining the 2017-2021 data and the 2009 to 2019 data
+##Adding continent for colour choices
+##Creating a rank variable and cutting off using this 
+Regardless of visualisation I realised that I needed a sensible cut off value for countries. Ranks provided that.I stored as a number variable as this allowed me to trial with a few of the size of plots
+## Making long format 
+###2 stage process of years and then ranks
+### Merging the long formats 
+
+#Visualisation 1 - using the actual values
+

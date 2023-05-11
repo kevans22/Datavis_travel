@@ -1,0 +1,59 @@
+﻿continent,country,colour_desc,hex_value
+Africa,Egypt,Soft pink,#e51f66
+Africa,Morocco,Soft pink,#e83676
+Africa,Tunisia,Soft pink,#ea4d85
+Africa,Other North Africa,Soft pink,#ed6495
+Africa,South Africa,Soft pink,#f07ba5
+Africa,Nigeria,Soft pink,#f292b4
+Africa,Other Africa,Soft pink,#f5a9c4
+Asia,Hong Kong (China),Soft green,#66e51f
+Asia,Other China,Soft green,#76e836
+Asia,India,Soft green,#85ea4d
+Asia,Japan,Soft green,#95ed64
+Asia,Pakistan,Soft green,#a5f07b
+Asia,Sri Lanka,Soft green,#b4f292
+Asia,Thailand,Soft green,#c4f5a9
+Asia,Other Asia,Soft green,#d4f8c0
+Caribbean,Barbados,Soft violet,#a836e8
+Caribbean,Jamaica,Soft violet,#b24dea
+Caribbean,Other Caribbean,Soft violet,#bc64ed
+Cental and South America,Brazil,Orange red,#cc3700
+Cental and South America,Mexico,Orange red,#e63e00
+Cental and South America,Other Central & Sth. America,Orange red,#ff4500
+Eastern Europe,Czech Republic,Steel blue,#315a7d
+Eastern Europe,Hungary,Steel blue,#38678f
+Eastern Europe,Poland,Steel blue,#3f75a2
+Eastern Europe,Romania,Steel blue,#4682b4
+Eastern Europe,Russia,Steel blue,#568ebd
+Eastern Europe,Slovakia,Steel blue,#699bc4
+Europe (other),Rest of Europe,Deep sky blue,#00bfff
+Middle East,Israel,Soft orange,#e8a836
+Middle East,United Arab Emirates,Soft orange,#eab24d
+Middle East,Other Middle East,Soft orange,#edbc64
+North America,Canada,Chestnut,#c74848
+North America,USA,Chestnut,#cd5c5c
+Northern Europe,Denmark,Sky blue,#45b3e0
+Northern Europe,Finland,Sky blue,#5bbce4
+Northern Europe,Lithuania,Sky blue,#71c5e7
+Northern Europe,Norway,Sky blue,#87ceeb
+Northern Europe,Sweden,Sky blue,#9dd7ef
+Oceania,Australia,Sea green,#1c9c95
+Oceania,New Zealand,Sea green,#20b2aa
+Other,Rest of the World,slate grey,#6a7b8d
+Other,Fly/cruise (stay onboard),slate grey,#778899
+South Eastern Europe,Bulgaria,Light blue,#72bcd4
+South Eastern Europe,Cyprus,Light blue,#86c5da
+South Eastern Europe,Greece,Light blue,#99cfe0
+South Eastern Europe,Turkey,Light blue,#add8e6
+Southern Europe,Italy,Dodgerblue,#006ad1
+Southern Europe,Malta,Dodgerblue,#0077ea
+Southern Europe,Portugal,Dodgerblue,#0483ff
+Southern Europe,Spain,Dodgerblue,#1e90ff
+Western Europe,Austria,Cornflower blue,#1f66e5
+Western Europe,Belgium,Cornflower blue,#3676e8
+Western Europe,France,Cornflower blue,#4d85ea
+Western Europe,Germany,Cornflower blue,#6495ed
+Western Europe,Republic of Ireland,Cornflower blue,#7ba5f0
+Western Europe,Luxembourg,Cornflower blue,#92b4f2
+Western Europe,Netherlands,Cornflower blue,#a9c4f5
+Western Europe,Switzerland,Cornflower blue,#bcd1f7
