@@ -1,0 +1,121 @@
+Packages used in PSY6422 final data visualisation
+
+1. Renv
+
+  Ushey K (2023). _renv: Project Environments_. R package version 0.17.3,
+  <https://CRAN.R-project.org/package=renv>.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {renv: Project Environments},
+    author = {Kevin Ushey},
+    year = {2023},
+    note = {R package version 0.17.3},
+    url = {https://CRAN.R-project.org/package=renv},
+  }
+
+2. Here
+
+  Müller K (2020). _here: A Simpler Way to Find Your Files_. R package version 1.0.1,
+  <https://CRAN.R-project.org/package=here>.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {here: A Simpler Way to Find Your Files},
+    author = {Kirill Müller},
+    year = {2020},
+    note = {R package version 1.0.1},
+    url = {https://CRAN.R-project.org/package=here},
+
+3. Tidyverse
+
+  Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J,
+  Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K,
+  Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” _Journal of Open Source
+  Software_, *4*(43), 1686. doi:10.21105/joss.01686 <https://doi.org/10.21105/joss.01686>.
+
+A BibTeX entry for LaTeX users is
+
+  @Article{,
+    title = {Welcome to the {tidyverse}},
+    author = {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},
+    year = {2019},
+    journal = {Journal of Open Source Software},
+    volume = {4},
+    number = {43},
+    pages = {1686},
+    doi = {10.21105/joss.01686},
+
+4. ggplot
+
+  H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
+
+A BibTeX entry for LaTeX users is
+
+  @Book{,
+    author = {Hadley Wickham},
+    title = {ggplot2: Elegant Graphics for Data Analysis},
+    publisher = {Springer-Verlag New York},
+    year = {2016},
+    isbn = {978-3-319-24277-4},
+    url = {https://ggplot2.tidyverse.org},
+  }
+
+5. Readxl
+
+  Wickham H, Bryan J (2023). _readxl: Read Excel Files_. R package version 1.4.2,
+  <https://CRAN.R-project.org/package=readxl>.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {readxl: Read Excel Files},
+    author = {Hadley Wickham and Jennifer Bryan},
+    year = {2023},
+    note = {R package version 1.4.2},
+    url = {https://CRAN.R-project.org/package=readxl},
+  }
+
+
+6. Plotly
+
+  C. Sievert. Interactive Web-Based Data Visualization with R, plotly, and shiny. Chapman and Hall/CRC
+  Florida, 2020.
+
+A BibTeX entry for LaTeX users is
+
+  @Book{,
+    author = {Carson Sievert},
+    title = {Interactive Web-Based Data Visualization with R, plotly, and shiny},
+    publisher = {Chapman and Hall/CRC},
+    year = {2020},
+    isbn = {9781138331457},
+    url = {https://plotly-r.com},
+  }
+
+7. HTMLwidgets
+
+  Vaidyanathan R, Xie Y, Allaire J, Cheng J, Sievert C, Russell K (2023). _htmlwidgets: HTML Widgets for
+  R_. R package version 1.6.2, <https://CRAN.R-project.org/package=htmlwidgets>.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {htmlwidgets: HTML Widgets for R},
+    author = {Ramnath Vaidyanathan and Yihui Xie and JJ Allaire and Joe Cheng and Carson Sievert and Kenton Russell},
+    year = {2023},
+    note = {R package version 1.6.2},
+    url = {https://CRAN.R-project.org/package=htmlwidgets},
+  }
+
+8. Tinytex
+  Xie Y (2023). _tinytex: Helper Functions to Install and Maintain TeX Live, and Compile LaTeX Documents_.
+  R package version 0.45, <https://github.com/rstudio/tinytex>.
+
+  Xie Y (2019). “TinyTeX: A lightweight, cross-platform, and easy-to-maintain LaTeX distribution based on
+  TeX Live.” _TUGboat_, *40*(1), 30-32. <https://tug.org/TUGboat/Contents/contents40-1.html>.
+
+To see these entries in BibTeX format, use 'print(<citation>, bibtex=TRUE)', 'toBibtex(.)', or set
+'options(citation.bibtex.max=999)'.
