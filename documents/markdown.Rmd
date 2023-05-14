@@ -171,7 +171,16 @@ head(df0921)
 ```
 
 #Visualisation 1
-The idea with visualisation 1 was to answer the question using the number 
+The idea with visualisation 1 was to answer the question using the number. 
+
+##
+
+
+
+
+
+
+
 
 #What data are we using for this project? ##About the IPS ##Raw data source ##Aditional data created #How was the data prepared? Explain that due to the repeating nature hoped to make a set of code that could add in the ##Packages and RENV Include a table of versions ##Removing additional information from the Excel sheets ##Merge the data ##Creating a ranking variable
 

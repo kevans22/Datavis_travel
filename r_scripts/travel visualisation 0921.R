@@ -269,9 +269,9 @@ dfColour <- read.csv(file = dataColour) # read in data
 #4.5.2. Match the colour file to the data by country
 longdfv2 <- left_join(longdfv2, dfColour,by="country")
 
-#3.6. Create the final visualisation (slope plot)
+#4.6. Create the final visualisation (slope plot)
 
-#3.6.1. Create titles for the plot
+#4.6.1. Create titles for the plot
 
 subtitle2 <- paste("Changes in the rank for overall visits (business and travel) for the top", 
                    toString(cutrank2),
@@ -280,24 +280,19 @@ subtitle2 <- paste("Changes in the rank for overall visits (business and travel)
                    "to" ,
                    toString(last(yrs_inc2))) # Label explaining the data 
 
-label2 <-  paste("Note: colours indicate the country grouping: Africa= pink; Asia = green;
-            Caribbean = violet; Central and South America = orange-red;Europe = blue;
-            Middle East = orange; North America = red Oceania = sea green; Other = grey") 
-            #Label explaining the colour choices, width is so that the text wraps around
+Source2 <- bquote(paste(~bold('Source:'),"Office for National Statistics International Passenger Survey",
+                        ~bold('Note:'),"Colours indicate country grouping; 2021 had disrupted data collection")) 
+           #data source and interpretation notes 
+  
+title2 <- paste("Viva Espania! Spain remains the UK's most visited country")
 
-capt2 <- paste("<b>Source:</b>","Office for National Statistics International Passenger Survey (IPS)","<br>",
-               "<b>Note:</b>","2021 data was based on fewer passengers due to issues collecting at key ports. 
-               Totals are based on estimates with a different methodology for 2017 onwards") #source and notes to help interpretation
-
-title2 <- paste("Viva Espania! Spain remains the UK's most visited country*") #Only part that will not amend automatically
-
-#3.6.2. Match the aesthetics (basic plot)
+#4.6.2. Match the aesthetics (basic plot)
 
 p2 <- longdfv2 %>% 
       ggplot(aes(x=year, y=rank,group=country, colour= country))
 
 
-#3.6.2. Add the formatting  
+#4.6.3. Add the formatting  
 
 final <- p2+
          #slope lines
@@ -328,14 +323,13 @@ final <- p2+
          
          #Use custom colours 
          scale_color_manual(values = setNames(longdfv2$hex_value, longdfv2$country)) +
-         
+  
          #Add labels
          labs(x = "Year", #X-axis
               y = "Rank of visits from the UK (1=most)", #y-axis
               title = title2, #main title
               subtitle = str_wrap(subtitle2, width=130), #subtitle 
-              caption= str_wrap(paste(capt2), 
-                                width=130)) + #caption with each on a new line
+              caption= Source2) + #caption with each on a new line
          
          #Specify the theme (fonts, background etc.)
          theme(plot.title = element_text(size=18, face = "bold"), #Main title font
@@ -344,9 +338,10 @@ final <- p2+
          axis.title = element_text(size=14,face = "bold"), #Axis title fonts 
          panel.background = element_blank(), #Make the background blank
          legend.position = "none",#Remove the legend 
-         plot.caption = element_text(size = 10)) #Caption font 
-
-
+         plot.caption = element_text(size = 10, hjust = 1)) #Caption font 
+        
          
 final
 
+#4.6.4. Save the dumbbell plot 
+ggsave(here("plots", "finalplot.png"), final)
