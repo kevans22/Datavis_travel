@@ -1,0 +1,311 @@
+#Codebook 
+
+##List of data and their purpose
+
+1. df0919
+
+Purpose: Add the raw data to the project for the years 2009 to 2019 (will only use up to 17)
+Source: Office for National Statistics https://www.ons.gov.uk/peoplepopulationandcommunity/leisureandtourism/datasets/ukresidentsvisitsabroad
+
+Initial variables: 
+- country (main country visited, includes the summary groups e.g. EU countries)
+- coltoremove (blank column) 
+- 2009 (number of visits in 000s)
+- 2010 (number of visits in 000s)
+- 2011 (number of visits in 000s)
+- 2012 (number of visits in 000s)
+- 2013 (number of visits in 000s)
+- 2014 (number of visits in 000s)
+- 2015 (number of visits in 000s)
+- 2016 (number of visits in 000s)
+- 2017 (number of visits in 000s)
+- 2018 (number of visits in 000s)
+- 2019 (number of visits in 000s)
+- blank1 (blank column)
+- change 1819 (the difference between 2018 and 2019 in 000s)
+- blank2 (blank column)
+- growth1819 (% growth in visits between 2018 and 2019)
+- blank3 (blank column)
+- Avgrowth1519 (% average annual growth between 2015 and 2019)
+
+Processing: adding variable names, removed unwanted variables
+
+Final variables (all as above unless mentioned)
+- country
+- 2009
+- 2010
+- 2011
+- 2012
+- 2013
+- 2014
+- 2015
+- 2016
+
+2. df0919_n
+
+Purpose: List to rename the variables for df0919
+Source: Created in r 
+
+Initial variables: 
+- x (column number)
+- y (column name) 
+
+Processing: n/a
+
+3. df0921
+
+Purpose: Final data frame combing the raw data sources
+Source: df0919 and df1721 (both from the ONS raw data) - df from indicated in square brackets
+
+Initial variables: 
+- country (main country visited, includes the summary groups e.g. EU countries) [df0919]
+- 2009 (number of visits in 000s) [df0919]
+- 2010 (number of visits in 000s) [df0919]
+- 2011 (number of visits in 000s) [df0919]
+- 2012 (number of visits in 000s) [df0919]
+- 2013 (number of visits in 000s) [df0919]
+- 2014 (number of visits in 000s) [df0919]
+- 2015 (number of visits in 000s) [df0919]
+- 2016 (number of visits in 000s) [df0919]
+- 2017 (number of visits in 000s) [df1721]
+- 2018 (number of visits in 000s) [df1721]
+- 2019 (number of visits in 000s) [df1721]
+- 2020 (number of visits in 000s) [df1721]
+- 2021 (number of visits in 000s) [df1721]
+
+Processing: adding a ranking variable
+
+Final variables (all as above unless mentioned)
+- country
+- 2009
+- 2010
+- 2011
+- 2012
+- 2013
+- 2014
+- 2015
+- 2016
+- 2017
+- 2018
+- 2019
+- 2020
+- 2021
+- rank_cut (a ranking variable created based on the number of visits 000s)
+
+4. df1721
+
+Purpose: Add the raw data to the project for the years 2017 to 2021
+Source: Office for National Statistics https://www.ons.gov.uk/peoplepopulationandcommunity/leisureandtourism/datasets/ukresidentsvisitsabroad
+
+Initial variables: 
+- country (main country visited, includes the summary groups e.g. EU countries) [df0919]
+- coltoremove
+- 2017 (number of visits in 000s)
+- 2018 (number of visits in 000s)
+- 2019 (number of visits in 000s)
+- 2020 (number of visits in 000s)
+- 2021 (number of visits in 000s)
+- blankroremove (blank column)
+- avgrowth1519 (average change in visits %)
+
+Processing: adding variable names, removed unwanted variables
+
+Final variables (all as above unless mentioned)
+- country
+- 2017
+- 2018
+- 2019
+- 2020
+- 2021
+
+5. df1721_n
+
+Purpose: List to rename the variables for df1721
+Source: Created in r 
+
+Initial variables: 
+- x (column number)
+- y (column name) 
+
+Processing: n/a
+
+6. dfColour
+Purpose: To add the colours desired for the visualisation so that each country grouping had its own base colour
+Source: created in excel based on the ONS National statistics country classification https://www.ons.gov.uk/methodology/classificationsandstandards/otherclassifications/nationalstatisticscountryclassification
+
+Initial variables: 
+- continent (country grouping)
+- country (country name)
+- colour_desc (description of the continent country)
+- hex_value (hex value that want to be included in the visualisation)
+
+Processing: n/a
+
+7. dfv1
+
+Purpose: Data frame to start visualisation 1 - this was used instead of df0921 because we were choosing cases based on ranj
+Source: df0921
+
+Initial variables: 
+- country (main country visited, includes the summary groups e.g. EU countries) 
+- 2009 (number of visits in 000s)
+- 2010 (number of visits in 000s) 
+- 2011 (number of visits in 000s) 
+- 2012 (number of visits in 000s) 
+- 2013 (number of visits in 000s) 
+- 2014 (number of visits in 000s) 
+- 2015 (number of visits in 000s) 
+- 2016 (number of visits in 000s) 
+- 2017 (number of visits in 000s) 
+- 2018 (number of visits in 000s)
+- 2019 (number of visits in 000s) 
+- 2020 (number of visits in 000s) 
+- 2021 (number of visits in 000s)
+- rank_cut (a ranking variable created based on the number of visits 000s)
+
+Processing: n/a
+
+8. dfv2
+
+Purpose: Data frame to start visualisation 2 and create ranks
+Source: df0921
+
+Initial variables: 
+- country (main country visited, includes the summary groups e.g. EU countries) 
+- 2009 (number of visits in 000s)
+- 2010 (number of visits in 000s) 
+- 2011 (number of visits in 000s) 
+- 2012 (number of visits in 000s) 
+- 2013 (number of visits in 000s) 
+- 2014 (number of visits in 000s) 
+- 2015 (number of visits in 000s) 
+- 2016 (number of visits in 000s) 
+- 2017 (number of visits in 000s) 
+- 2018 (number of visits in 000s)
+- 2019 (number of visits in 000s) 
+- 2020 (number of visits in 000s) 
+- 2021 (number of visits in 000s)
+- rank_cut (a ranking variable created based on the number of visits 000s)
+
+Processing: years converted from showing visits to the rank position, renamed variable rank_cut so clear for visualisation 2, removed 2020
+
+Final variables (all as above unless mentioned)
+- country (main country visited, includes the summary groups e.g. EU countries) 
+- 2009 (rank position in 2009)
+- 2010 (rank position in 2010)
+- 2011 (rank position in 2011)
+- 2012 (rank position in 2012)
+- 2013 (rank position in 2013)
+- 2014 (rank position in 2014)
+- 2015 (rank position in 2015)
+- 2016 (rank position in 2016)
+- 2017 (rank position in 2017)
+- 2018 (rank position in 2018)
+- 2019 (rank position in 2019)
+- 2021 (rank position in 2009)
+- rank_cut2 (a ranking variable created based on the number of visits 000s)
+
+9. longdfv1
+
+Purpose: dfv1 in a long format to allow for plotting
+Source: dfv1
+
+Initial variables: 
+- country (main country visited, includes the summary groups e.g. EU countries) 
+- 2009 (rank position in 2009)
+- 2010 (rank position in 2010)
+- 2011 (rank position in 2011)
+- 2012 (rank position in 2012)
+- 2013 (rank position in 2013)
+- 2014 (rank position in 2014)
+- 2015 (rank position in 2015)
+- 2016 (rank position in 2016)
+- 2017 (rank position in 2017)
+- 2018 (rank position in 2018)
+- 2019 (rank position in 2019)
+- 2021 (rank position in 2009)
+- rank_cut2 (a ranking variable created based on the number of visits 000s)
+
+Processing: convert to long format, add in colour formats 
+Final variables (all as above unless mentioned)
+- country
+- year (year that the number of visits corresponds to)
+- rank (rank position in corresponding year)
+
+10. longdfv2
+
+Purpose: dfv2 in a long format to allow for plotting
+Source: dfv2 and dfColour
+
+Initial variables: 
+- country (main country visited, includes the summary groups e.g. EU countries) 
+- 2009 (number of visits in 000s)
+- 2010 (number of visits in 000s) 
+- 2011 (number of visits in 000s) 
+- 2012 (number of visits in 000s) 
+- 2013 (number of visits in 000s) 
+- 2014 (number of visits in 000s) 
+- 2015 (number of visits in 000s) 
+- 2016 (number of visits in 000s) 
+- 2017 (number of visits in 000s) 
+- 2018 (number of visits in 000s)
+- 2019 (number of visits in 000s) 
+- 2020 (number of visits in 000s) 
+- 2021 (number of visits in 000s)
+- rank_cut (a ranking variable created based on the number of visits 000s)
+
+Processing: convert to long format, merge in colours 
+
+Final variables (all as above unless mentioned)
+- country
+- year (year that the number of visits corresponds to)
+- visits (number of visits 000s)
+- continent (country grouping)
+- country (country name)
+- colour_desc (description of the continent country)
+- hex_value (hex value that want to be included in the visualisation)
+
+11. summaries
+Purpose: List to remove summary text in df
+Source: Created in r 
+
+12. table
+
+Purpose: Table to explain variables in rMarkdown
+Source: Created in r 
+
+Initial variables: 
+- variable (name of key variable)
+- description (explanation fo what the variable is)
+- other_notes (other key information when using these variables) 
+
+Processing: n/a
+
+##Plots
+1. p - basic plot for visualisation 1
+2. p1 - visualisation 1 (dumbell)
+3. ip1 - interactive version of visualisation 1
+4. p2 - basic plot for visualisation 2
+5. final - visualisation 2 (slope plot, final version) 
+
+##Values
+1. Capt2 - string text to add to visualisation 2 as a text box. Not used but remains in environment
+2. comData_n - location to save data set 
+3. cutrank1 - define how many countries want in visualisation 1
+4. cutrank2 - define how many countries want in visualisation 2
+5. data0919 - location of the raw 2009 to 2019 data
+6. data1721 - location of the raw 2017 to 2021 data
+7. dataColour - location of the colour scheme file 
+8. dflen - this was calculated to create a loop that was not used. No longer in code but variable exisits in the environment. 
+9. label2 - string text to add to visualisation 2 as a text box. Not used but remains in environment
+10 note 2 - string text to add to visualisation 2 as a text box. Not used but remains in environment
+11. ONSlist - the length of the ONS data table (countries and summaries)
+12. source2 - string text to add to visualisation 2 as a text box. Not used but remains in environment
+13. Source2 - expression that gets added to the caption of visualisation 2
+14. subtitle1 - subtitle for visualisation 1
+15. subtitle2 - subtitles for visualisation 2
+16. title2 - title for visualisation 2
+17. yearsdf0919 - list of years that we want to take from the df0919
+17. yearsdf1721 - list of years to take from df1721
+18. yrs_inc1 - list of years that we want visualised in visualisation 1
+19. yrs_inc2 - list of years that want to be included in visualisation 2 

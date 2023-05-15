@@ -13,6 +13,7 @@ library(renv)
 #install.packages('plotly') #version 4.10.1
 #install.packages('htmlwidgets') # version 1.6.2
 #tinytex::install_tinytex() #version 0.45
+#install.packages('knitr') # version 1.42
 #renv::snapshot() #puts into the RENV folder for future use, snapshot after each new package
 
 #Libraries
@@ -23,6 +24,7 @@ library(ggplot2) #chart making
 library(readxl)#Reading in Excel sheets as that is how the data is stored 
 library(plotly)#Making scroll over charts
 library(htmlwidgets)#To save interactive chart
+library(knitr)#To make a table for the RMarkdown
 
 # 2. Load the data in
 
@@ -60,9 +62,13 @@ df1721<- read_excel(data1721,
 #rename columns 2017-2021
 
 df1721_n <- tibble(x = 1:9, 
-                   y = c("country", "coltoremove", "2017","2018",
-                                  "2019","2020","2021","blankroremove",
-                                  "avgrowth1519"))#list of column names
+                   y = c("country", 
+                         "coltoremove", 
+                         "2017","2018",
+                         "2019","2020",
+                         "2021",
+                         "blankroremove",
+                         "avgrowth1519"))#list of column names
 
 names(df1721) <- df1721_n %>% select(y) %>% pull()#function to change the names 
 
@@ -326,7 +332,7 @@ final <- p2+
   
          #Add labels
          labs(x = "Year", #X-axis
-              y = "Rank of visits from the UK (1=most)", #y-axis
+              y = "Rank of visits from the UK (1=most visited)", #y-axis
               title = title2, #main title
               subtitle = str_wrap(subtitle2, width=130), #subtitle 
               caption= Source2) + #caption with each on a new line
@@ -344,4 +350,5 @@ final <- p2+
 final
 
 #4.6.4. Save the dumbbell plot 
-ggsave(here("plots", "finalplot.png"), final)
+ggsave(here("plots", "finalplot.png"), final, width = 17.96, height = 11.46)
+
