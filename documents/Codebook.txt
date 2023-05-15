@@ -8,8 +8,8 @@ Purpose: Add the raw data to the project for the years 2009 to 2019 (will only u
 Source: Office for National Statistics https://www.ons.gov.uk/peoplepopulationandcommunity/leisureandtourism/datasets/ukresidentsvisitsabroad
 
 Initial variables: 
-- country (main country visited, includes the summary groups e.g. EU countries)
-- coltoremove (blank column) 
+- ...1 (main country visited, includes the summary groups e.g. EU countries)
+- ...2 (blank column) 
 - 2009 (number of visits in 000s)
 - 2010 (number of visits in 000s)
 - 2011 (number of visits in 000s)
@@ -21,12 +21,12 @@ Initial variables:
 - 2017 (number of visits in 000s)
 - 2018 (number of visits in 000s)
 - 2019 (number of visits in 000s)
-- blank1 (blank column)
-- change 1819 (the difference between 2018 and 2019 in 000s)
-- blank2 (blank column)
-- growth1819 (% growth in visits between 2018 and 2019)
-- blank3 (blank column)
-- Avgrowth1519 (% average annual growth between 2015 and 2019)
+- ...14 (blank column)
+- (000s) (the difference between 2018 and 2019 in 000s)
+- ...16 (blank column)
+- (%)...17 (% growth in visits between 2018 and 2019)
+- ...18 (blank column)
+- (%)...19 (% average annual growth between 2015 and 2019)
 
 Processing: adding variable names, removed unwanted variables
 
@@ -98,15 +98,15 @@ Purpose: Add the raw data to the project for the years 2017 to 2021
 Source: Office for National Statistics https://www.ons.gov.uk/peoplepopulationandcommunity/leisureandtourism/datasets/ukresidentsvisitsabroad
 
 Initial variables: 
-- country (main country visited, includes the summary groups e.g. EU countries) [df0919]
-- coltoremove
+- ...1 (main country visited, includes the summary groups e.g. EU countries) [df0919]
+- ...2 (blank column)
 - 2017 (number of visits in 000s)
 - 2018 (number of visits in 000s)
 - 2019 (number of visits in 000s)
 - 2020 (number of visits in 000s)
 - 2021 (number of visits in 000s)
-- blankroremove (blank column)
-- avgrowth1519 (average change in visits %)
+- ...8 (blank column)
+- (%) (average change in visits %)
 
 Processing: adding variable names, removed unwanted variables
 
@@ -281,6 +281,24 @@ Initial variables:
 
 Processing: n/a
 
+13. raw
+
+Purpose: To show the raw data in rMarkdown
+Source: Office for National Statistics https://www.ons.gov.uk/peoplepopulationandcommunity/leisureandtourism/datasets/ukresidentsvisitsabroad
+
+Initial variables: 
+- ...1 (main country visited, includes the summary groups e.g. EU countries) [df0919]
+- ...2 (blank column)
+- 2017 (number of visits in 000s)
+- 2018 (number of visits in 000s)
+- 2019 (number of visits in 000s)
+- 2020 (number of visits in 000s)
+- 2021 (number of visits in 000s)
+- ...8 (blank column)
+- (%) (average change in visits %)
+
+Processing: n/a
+
 ##Plots
 1. p - basic plot for visualisation 1
 2. p1 - visualisation 1 (dumbell)
@@ -299,13 +317,14 @@ Processing: n/a
 8. dflen - this was calculated to create a loop that was not used. No longer in code but variable exisits in the environment. 
 9. label2 - string text to add to visualisation 2 as a text box. Not used but remains in environment
 10 note 2 - string text to add to visualisation 2 as a text box. Not used but remains in environment
-11. ONSlist - the length of the ONS data table (countries and summaries)
-12. source2 - string text to add to visualisation 2 as a text box. Not used but remains in environment
-13. Source2 - expression that gets added to the caption of visualisation 2
-14. subtitle1 - subtitle for visualisation 1
-15. subtitle2 - subtitles for visualisation 2
-16. title2 - title for visualisation 2
-17. yearsdf0919 - list of years that we want to take from the df0919
-17. yearsdf1721 - list of years to take from df1721
-18. yrs_inc1 - list of years that we want visualised in visualisation 1
-19. yrs_inc2 - list of years that want to be included in visualisation 2 
+11. screen - screenshot of the interactive plot for markdown 
+12. ONSlist - the length of the ONS data table (countries and summaries)
+13. source2 - string text to add to visualisation 2 as a text box. Not used but remains in environment
+14. Source2 - expression that gets added to the caption of visualisation 2
+15. subtitle1 - subtitle for visualisation 1
+16. subtitle2 - subtitles for visualisation 2
+17. title2 - title for visualisation 2
+18. yearsdf0919 - list of years that we want to take from the df0919
+19. yearsdf1721 - list of years to take from df1721
+20. yrs_inc1 - list of years that we want visualised in visualisation 1
+21. yrs_inc2 - list of years that want to be included in visualisation 2 
