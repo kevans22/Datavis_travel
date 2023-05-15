@@ -12,7 +12,7 @@ library(renv)
 #install.packages('readxl') #version 1.4.2
 #install.packages('plotly') #version 4.10.1
 #install.packages('htmlwidgets') # version 1.6.2
-#tinytex::install_tinytex() #version 0.45
+#tinytex::install_tinytex(force=TRUE) #version 0.45
 #install.packages('knitr') # version 1.42
 #renv::snapshot() #puts into the RENV folder for future use, snapshot after each new package
 
@@ -286,7 +286,7 @@ subtitle2 <- paste("Changes in the rank for overall visits (business and travel)
                    "to" ,
                    toString(last(yrs_inc2))) # Label explaining the data 
 
-Source2 <- bquote(paste(~bold('Source:'),"Office for National Statistics International Passenger Survey",
+Source2 <- bquote(paste(~bold('Source:'),"ONS International Passenger Survey",
                         ~bold('Note:'),"Colours indicate country grouping; 2021 had disrupted data collection")) 
            #data source and interpretation notes 
   
@@ -334,7 +334,7 @@ final <- p2+
          labs(x = "Year", #X-axis
               y = "Rank of visits from the UK (1=most visited)", #y-axis
               title = title2, #main title
-              subtitle = str_wrap(subtitle2, width=130), #subtitle 
+              subtitle = str_wrap(subtitle2, width=150), #subtitle 
               caption= Source2) + #caption with each on a new line
          
          #Specify the theme (fonts, background etc.)
@@ -350,5 +350,5 @@ final <- p2+
 final
 
 #4.6.4. Save the dumbbell plot 
-ggsave(here("plots", "finalplot.png"), final, width = 17.96, height = 11.46)
+ggsave(here("plots", "finalplot.png"), final, width = 13.44, height = 8.595)
 
