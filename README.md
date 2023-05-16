@@ -1,7 +1,7 @@
 # Datavis_travel
 Final project for the PSYC6422 course in data management and visualisation.
 The aim of this project was to visualise the trends in travel from the UK between 2009 and 2021. 
-The data was accessed via the Office for National Statistics website and is based on their International Passenger Survey - the data sources are outlined in the [add pages] 
+The data was accessed via the [Office for National Statistics website](https://www.ons.gov.uk/peoplepopulationandcommunity/leisureandtourism/datasets/ukresidentsvisitsabroad) and is based on their International Passenger Survey - the data sources are outlined in the [following pages](https://kevans22.github.io/Datavis_travel/).  
 
 ## What is here
 * README.md - project description. This file
