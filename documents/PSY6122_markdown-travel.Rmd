@@ -1,15 +1,14 @@
 ---
 title: "PSY6122 - Travel from the UK data visualisation"
 output:
-  pdf_document:
-  urlcolor: blue
   html_document:
     df_print: paged
+  urlcolor: blue
+  pdf_document:
 date: "2023-05-15"
 editor_options:
   markdown:
     wrap: 72
-
 ---
 
 # Background
@@ -125,27 +124,22 @@ As an initial step I created a set of values that supported the importation and 
 ONSList <- 68 #The length of the ONS data table, these are consistent
 
 yearsdf1721 <- c("2017","2018","2019",
-                 "2020","2021") 
-# These are the years that we will want to take from this data frame
+                 "2020","2021") # These are the years that we will want to take from this data frame
 
 yearsdf0919 <- c("2009","2010","2011",
                  "2012","2013","2014",
-                 "2015","2016") 
-#Years wanted, always choose most recent
+                 "2015","2016") #Years wanted, always choose most recent
 
 summaries <- list('Total World',
                   'Other Countries',"Europe",
                   '- of which EU',
                   '- of which EU Oth',
                   '- of which EU15',
-                  "North America") 
-#summary values used in the dataset
+                  "North America") #summary values used in the dataset
 
 # Raw data locations
-data1721 = (here("raw_data","section3ukresidentsvisitsabroad2017to2021.xlsx")) 
-#data for 2017 to 2021
-data0919 = (here ("raw_data","section3ukresidentsvisitsabroad2009to2019.xlsx")) 
-#data for 2009 to 2017
+data1721 = (here("raw_data","section3ukresidentsvisitsabroad2017to2021.xlsx")) #data for 2017 to 2021
+data0919 = (here ("raw_data","section3ukresidentsvisitsabroad2009to2019.xlsx")) #data for 2009 to 2017
 ```
 
 ### Importing the data
@@ -267,8 +261,7 @@ Initially I created variables to select the years and the number of countries I 
 #3.1. Create variables to allow us to choose the number of 2021 ranks 
 
 cutrank1 <- 20 #number of countries that we want included in the chart
-yrs_inc1 <- c(2009, 2021) 
-# years that we want to include (can be any year from 2009-2021 apart from 2020)
+yrs_inc1 <- c(2009, 2021) # years that we want to include (can be any year from 2009-2021 apart from 2020)
 
 #3.2 Create summary DF based on the number of countries
 
@@ -286,13 +279,10 @@ longdfv1 <- dfv1 %>% select("country",
                             "2019", "2021") %>% #2020 dropped due to no data 
                       pivot_longer(!country, 
                                    names_to = "year", 
-                                   names_transform = list(year = as.factor), 
-                                   #Changed to factor to allow for it to be treated as a category
+                                   names_transform = list(year = as.factor), #Changed to factor to allow for it to be treated as a category
                                    values_to = "visits") %>%
-                      arrange(desc(visits)) %>% 
-  #order by the most visited to the least
-                      filter(year %in% yrs_inc1) 
-#removes years that we are not interested in as defined above
+                      arrange(desc(visits)) %>%  #order by the most visited to the least
+                      filter(year %in% yrs_inc1) #removes years that we are not interested in as defined above
 
 head(longdfv1)
 ```
@@ -334,29 +324,31 @@ ggsave(here("plots", "dumbell.png"), v1, width = 11.2, height = 7.163)
 ```
 
 ```{r, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here("plots", "dumbell.png"))
-```
 
+knitr::include_graphics(here("plots", "dumbell.png"))
+
+```
 
 
 ### Interactive plot
 
-As I felt that this plot made reading the actual number difficult I entered it into ggplotly to allow for scrolling over points. This was useful but did make some of the formatting less clear. In this document I have commented the code to show this process and added a screenshot of the plot in action (please see *[repo](https://github.com/kevans22/Datavis_travel/tree/main))*.
+As I felt that this plot made reading the actual number difficult I entered it into ggplotly to allow for scrolling over points. This was useful but did make some of the formatting less clear. 
 
 ```{r, out.width="100%"}
 #3.6. Add the dumbbell to plotly to make it interactive
 
-#ip1 <- ggplotly(v1) #Use plotly for scrollover
+ip1 <- ggplotly(v1) #Use plotly for scrollover
 #Display interactive visualisation 1
-#ip1
+ip1
 
 #3.7. Save the interactive plot
-#saveWidget(ip1, file='interactivedumbell.html')
+saveWidget(ip1, file='interactivedumbell.html')
+```
 
-#Image for PDF markdown
-screen <- here("documents", "printscreen_ip1.png") #location of file 
-knitr::include_graphics(screen)
-
+```{r,eval=FALSE}
+#Image for PDF markdown (add if required)
+#screen <- here("documents", "printscreen_ip1.png") #location of file 
+#knitr::include_graphics(screen)
 ```
 
 ### Interpretation - has there been a change in travel patterns?
@@ -394,8 +386,7 @@ dfv2 <- df0921 %>%
                r18 = rank(-`2018`, ties.method = "average"),
                r19 = rank(-`2019`, ties.method = "average"),
                r20 = r19, #no data so saying that it would have been steady from 19
-               r21 = rank(-`2021`, ties.method = "average")) %>% 
-  #r09-#r21 are the rank scores for each year
+               r21 = rank(-`2021`, ties.method = "average")) %>% #r09-#r21 are the rank scores for each year
         select("country", 
                "r09", "r10", "r11", 
                "r12", "r13", "r14", 
@@ -414,8 +405,7 @@ dfv2 <- df0921 %>%
                '2018'='r18',
                '2019'='r19',
                '2021'='r21',
-               'rank_cut2'='rank_cut') 
-#changing rank names to years to allow for changing to long format
+               'rank_cut2'='rank_cut') #changing rank names to years to allow for changing to long format
 
 #4.3. Create summary DF based on the number of countries
 
@@ -434,8 +424,7 @@ longdfv2 <- dfv2 %>%
                    "2019", "2021") %>%
             pivot_longer(!country, 
                           names_to = "year", 
-                          names_transform = list(year = as.factor), 
-                         #Changed to factor to allow for it to be treated as a categor
+                          names_transform = list(year = as.factor), #Changed to factor to allow for it to be treated as a category
                           values_to = "rank") %>%
             filter(year %in% yrs_inc2) #remove years that are irrelevant
 
@@ -487,8 +476,7 @@ subtitle2 <- paste("Changes in the rank for overall visits (business and travel)
                    toString(last(yrs_inc2))) # Label explaining the data 
 
 Source2 <- bquote(paste(~bold('Source:'),"ONS International Passenger Survey",
-                        ~bold('Note:'),"Colours indicate country grouping; 2021 had disrupted data collection")) 
-           #data source and interpretation notes 
+                        ~bold('Note:'),"Colours indicate country grouping; 2021 had disrupted data collection")) #data source and interpretation notes 
   
 title2 <- paste("Viva Espania! Spain remains the UK's most visited country")
 
@@ -508,25 +496,19 @@ final <- p2+
          geom_point(size = 3.5) + 
          
          #Labels to show the country and rank next to each of the countries 
-         geom_text(data= longdfv2 %>% filter(year==(toString(first(yrs_inc2)))), 
-                   #selects the first year
+         geom_text(data= longdfv2 %>% filter(year==(toString(first(yrs_inc2)))), #selects the first year
                    aes(x=year, y=rank,label = country), #add the country name 
-                   size = 4, nudge_x = -0.35, fontface = "bold", color = "#000000") + 
-  # format so next to text
+                   size = 4, nudge_x = -0.35, fontface = "bold", color = "#000000") + # format so next to text
   
-         geom_text(data= longdfv2 %>% filter(year==(toString(last(yrs_inc2)))), 
-                   #selects the last year 
+         geom_text(data= longdfv2 %>% filter(year==(toString(last(yrs_inc2)))), #selects the last year 
                    aes(x=year, y=rank,label = country), # add the country name
-                   size = 4, nudge_x = 0.35, fontface = "bold", color = "#000000") + 
-  #format so next to text 
+                   size = 4, nudge_x = 0.35, fontface = "bold", color = "#000000") + #format so next to text 
   
          geom_text(data= longdfv2 %>% filter(year ==(toString(first(yrs_inc2)))), #select the first year
                    aes(x=year, y=rank,label = rank), #add the rank position
-                   size = 4, nudge_x = -0.05, fontface = "bold", color = "#000000") + 
-  #place next to country name
+                   size = 4, nudge_x = -0.05, fontface = "bold", color = "#000000") + #place next to country name
   
-         geom_text(data= longdfv2 %>% filter(year ==(toString(last(yrs_inc2)))), 
-                   #select the last year
+         geom_text(data= longdfv2 %>% filter(year ==(toString(last(yrs_inc2)))), #select the last year
                    aes(x=year, y=rank,label = rank), # add the rank to the chart
                    size = 4, nudge_x = 0.05,fontface = "bold", color = "#000000") + #formatting 
          
