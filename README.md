@@ -12,7 +12,7 @@ The data was accessed via the [Office for National Statistics website](https://w
 
 **Files**
 * \created_data - data that was either developed for the project or produced as an output
-* \documents - contains the codebook, markdown file, package history and a printscreen
+* \documents - contains the codebook, markdown file (used for index), package history and a printscreen
 * \plots - folder containing the visualisations created
 * \r_scripts - full script for the project
 * \raw_data - files downloaded from the ONS website
