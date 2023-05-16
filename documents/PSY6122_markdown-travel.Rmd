@@ -575,7 +575,8 @@ The final visualisation does have some limitations:
 If there was more time and access to the full data set for the IPS since 1961 I would have liked to create an interactive dashboard of the ranked travel data. This would allow people to type in their countries of interest and see longer term trends. This could also allow people who are interested to click on the position to see the actual number of visits. An example of this is provided by the ONS on [100 years of baby names](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/articles/babynamessince1904howhasyoursperformed/2016-09-02).
 
 
-##Overall have people in the UK changed their chosen travel destinations over time?
+## Overall have people in the UK changed their chosen travel destinations over time?
+
 From the two visualisations the travel choices in the UK apear to have remained relatively consistent in the UK. However there do appear to be some changes that would hopefully become more clear in the future. 
 
 # References
