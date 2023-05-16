@@ -13,9 +13,9 @@ editor_options:
 
 # Background
 
-Travel is an important activity that people in the United Kingdom (UK) participate in for leisure, business and visiting family. Choices are influenced by a number of personal and wider influences (such as the economic or political) This means that preferences have the potential to change over time. 
+Travel is an important activity that people in the United Kingdom (UK) participate in for leisure, business and visiting family. Choices are influenced by a number of personal and wider influences (such as the economic or political).
 
-Individual travel choices can also have implications for the economy and environment. This makes understanding trends important. Additionally in the past 10 years the UK has seen a number of events which theoretically could have effected these travel choices (e.g. Coronavirus pandemic, EU Exit).
+Individual travel choices can also have implications for the economy and environment. This makes understanding trends important. Additionally in the past 10 years the UK has seen a number of events which theoretically could have influenced these travel choices (e.g. Coronavirus pandemic, EU Exit).
 
 ## Research question 
 
@@ -23,9 +23,9 @@ Overall have people in the UK **changed their chosen travel destinations over ti
 
 # Data Origins
 
-The data was provided by the UK's Office for National Statistics and
-accessed in May 2023 at their *[Travel Trends Dataset
-Pages](https://www.ons.gov.uk/peoplepopulationandcommunity/leisureandtourism/datasets/ukresidentsvisitsabroad)*.
+The data was provided by the UK's Office for National Statistics (ONS) and
+accessed in May 2023 at their [Travel Trends Dataset
+Pages](https://www.ons.gov.uk/peoplepopulationandcommunity/leisureandtourism/datasets/ukresidentsvisitsabroad).
 The only available data was between 2009 and 2021. The specific files
 used were:
 
@@ -34,27 +34,25 @@ used were:
 
 I have used the "Number of visits to specified countries: by main
 country visited and nationality" as this allowed a more nuanced view of
-travel which a region level may not pick up. 
+travel than region. 
 
 
 ## Data collection 
 
 The data used in this project provides estimated visits based on the
-International Passenger Survey (IPS). The IPS uses interviews at all
+**International Passenger Survey (IPS)**. The IPS uses interviews at all
 major airports, sea routes and Eurostar/ Eurotunnel terminals with
-approximately 250,000 people (although up to 800,000 interviews take
-place). There are no other details on the sampling method. Countries are consistent every year available. 
+approximately 250,000 people included in the estimates (although up to 800,000 interviews take
+place). There are no other details on the sampling method. Countries are consistent for every year available. 
 
-However the data for 2021 is more limited than previous years of the IPS due to a smaller sample. Reasons for this included the smaller number of travelers and issues collecting the data at key terminals (e.g. Eurotunnel). This means that there is more error in the estimation than other years (excluding 2020 where no country level
-data is available). 
+However the data for 2021 is more limited than previous years of the IPS due to a smaller sample. Reasons for this included the smaller number of travelers and issues collecting the data at key terminals (e.g. Eurotunnel). Additionally a new method for calculating the 2021 estimates was introduced. Full details of both the changes and data distruption are in the *[raw data files](https://github.com/kevans22/Datavis_travel/tree/main/raw_data)*.
 
-Additionally a new method for calculating the 2021 estimates were introduced which supersedes the previous years. The estimates that overlap are the same in the 2009 to 2019 data sets. Full details of the changes are in the *[raw data files](https://github.com/kevans22/Datavis_travel/tree/main/raw_data)*.
-Despite  scale and coverage the IPS is a good source to answer the research question therefore it is used. The different methods of calculation look to have had no effects on the numbers so a merge is still appropriate.  Additionally no other data sources exist at this level of detail. 
+Overall the scale and coverage of the IPS make it reliable for our research question, bearing in mind caveats around 2021. After reviewing the overlapping years within the data sets the number of visits matched; making a merge still appropriate. Finally other data sources of a better or similar quality were not available. 
 
 
-## Raw data
+## Initial data
 
-Below is the top of the raw data set for the years 2017 to 2021.
+The initial data for this project was relatively clean and within a workbook of multiple statistics. The table below shows the first few rows of how the initial data for 2017 to 2021.
 ```{r, echo=FALSE, results="hide", warning=FALSE, message=FALSE, error=FALSE}
 #To show the raw data in markdown
 renv::restore()
@@ -75,9 +73,9 @@ head(raw)
 ```
 
 ## Data definitions 
-A full codebook describing the variables from the original dataset and any calculated values are available *[in the github pages for this project](https://github.com/kevans22/Datavis_travel/blob/main/documents/Codebook.txt)*. 
+A full codebook describing the variables from the original data set and any calculated values are available [in the github pages for this project](https://github.com/kevans22/Datavis_travel/blob/main/documents/Codebook.txt). 
 
-The variables taken from the raw data that were not removed are:
+The primary variables taken from the initial data are in the table below.
 
 ```{r, echo=FALSE }
 
@@ -106,15 +104,16 @@ library(ggplot2) #chart making
 library(readxl)#Reading in Excel sheets as that is how the data is stored 
 library(plotly)#Making scroll over charts
 library(htmlwidgets)#To save interactive chart
+library(knitr) #To make a table for the RMarkdown
 ```
 
-To support future replication this R Project used RENV (version:0.17.3) with package versions available in the following *[file location](https://github.com/kevans22/Datavis_travel/tree/main/documents)*.
+To support future replication this R Project used RENV (version:0.17.3) to keep packages consistent and details together. An additional document with package citations is available in the following [file location](https://github.com/kevans22/Datavis_travel/tree/main/documents).
 
 ## Importing the data
 
 ### Creating cleaning variables
 
-As an initial step I created a set of values that supported the importation and data cleaning processes. In theory these will allow for new data sets to be added in a simple way.
+As an initial step a set of values was created to support the importation and data cleaning processes. In theory these will allow for new data sets to be added in a simple way.
 
 ```{r}
 # 2. Load the data in
@@ -195,7 +194,7 @@ df0919 <- df0919 %>%
 
 ## Merge the files 
 
-Once both data sets were in the same shape I merged them into a single data set that has all available years. This was then when I removed the summary variables to avoid unecessary code. 
+Once both data sets were in the same shape they were them into a single data frame that has all available years. This was then when I removed the summary variables to avoid uneccessary code. 
 
 ```{r, results="hide", message= FALSE, error=FALSE, warning=FALSE}
 #Merge the datasets
@@ -229,23 +228,23 @@ head(df0921)
 
 # Visualising the data 
 
-To answer this question I felt that there were three approaches to visualising the data:
+I decided that there were three approaches to visualising the data:
 
 1. Use the raw visits data.
 2. Report the proportion of visits to each country.
 3. Use the country's rank score. 
 
-Visits and ranks were seen as the most promising for visualisations as proportions would require more of the countries to be included in the plot. I also felt that people would be more interested in which are the most visited rather than proportions. 
+Visits and ranks were seen as the most promising for visualisations as proportions would require more of the countries to be included in the plot. It was also assumed that an audience would be more interested in the most visited rather than proportions. 
 
 **Other considerations:**
 
-* **Scale** issues. A key consideration is that Spain in particular had a much greater number of visits than other countries. This could make any charting look odd with differences between the other nations minimised.  
-* The **number of countries** to include. Fifty-eight countries makes a chart very hard to interpret so for each visualisation I need to balance the overall trends (as many as possible) and what is interesting. I based this on the top visited as this accounts for most passengers. 
-* The **number of years**. Additional years show where patterns started to occur but as there are only 12 years of data the benefits of this versus the clutter on the chart needs to be balanced. 
-* **Inclusion of 2021**. As mentioned earlier 2021 is an atypical year and may give unreliable trend information. However it is the latest date and it is interesting to see the impact of COVID-19 on travel so it remains. 
-* **Country names**. some "countries" are composites of those that did not have enough visits for their own label (e.g. "rest of Europe"). This means that these are slightly less informative if a person does not look at the full list. In the end I decided to keep consistent with the ONS realising that this is a limitation. 
-* **Flexibility** to make changes if design needs were required. 
-* Although I decided country was the more interesting trend it would be ideal to have a way to indicate **where these countries are situated**.
+* **Scale** issues. A key consideration is that Spain had a much greater number of visits than any other country. This could make any charting look odd with differences between the other nations minimised.  
+* The **number of countries** to include. Fifty-eight countries makes a chart very hard to interpret so for each visualisation there was a need to balance the overall trends (as many as possible) and what is interesting.
+* The **number of years**. Additional years show where patterns started to occur but as there are only 12 years of data the benefits of this versus confusing the overall message on the chart needs to be balanced. 
+* **Inclusion of 2021**. As mentioned earlier 2021 is an atypical year and may give unreliable trend information. However it is the latest date and it is interesting to see the impact of COVID-19 on travel. 
+* **Country names**. some "countries" are composites of those that did not have enough visits for their own label (e.g. "rest of Europe"). This means that these are slightly less informative if a person does not look at the full list. These were retained to match the ONS and it is potentially interesting seeing growth in smaller groups.
+* That the chart had **Flexibility** to make changes if design needs were required. 
+* Although country was the more interesting trend it would be ideal to have a way to indicate **where these countries are situated**.
 
 
 ## Visualisation 1 - Dumbell plot
@@ -324,11 +323,8 @@ ggsave(here("plots", "dumbell.png"), v1, width = 11.2, height = 7.163)
 ```
 
 ```{r, echo=FALSE, out.width="100%"}
-
-knitr::include_graphics(here("plots", "dumbell.png"))
-
+include_graphics(here("plots", "dumbell.png"))
 ```
-
 
 ### Interactive plot
 
@@ -543,7 +539,7 @@ ggsave(here("plots", "finalplot.png"), final, width = 13.44, height = 8.595)
 
 
 ```{r, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here("plots", "finalplot.png"))
+include_graphics(here("plots", "finalplot.png"))
 ```
 
 ### Interpretation - has there been a change in travel patterns?
@@ -561,7 +557,11 @@ However more specific insights include:
 
 # Reflections
 
-The main reflection that I have on the visualisations is the difficulties in trying to provide all the information available in a simple format. Although it can seem inappropriate to lose data on actual visits and the scale of the Spanish visits this was necessary to see the big picture. I think that visualisation 2 is sufficient to get an overall idea of the trends with UK travel. 
+The main reflection that I have on the visualisations is the difficulties in trying to provide all the information available in a simple format. Although it can seem inappropriate to lose data on actual visits and the scale of the Spanish visits this was necessary to see the big picture. 
+
+With visualisation 1 I think that the chart type and overall look is good. However the difficulties managing the scale and getting the countries to order as planned made it not fully effective.
+
+I think that visualisation 2 is sufficient to get an overall idea of the trends with UK travel. I like the colour scheme and that it looks simple whilst containing the necessary information. Likewise the subtitles that automatically change were another strength.
 
 The final visualisation does have some limitations:
 
@@ -569,15 +569,19 @@ The final visualisation does have some limitations:
 * Issues with the data collection in 2021 make them slightly less reliable especially on France/ Republic of Ireland. 
 * Scaling issues where the text can get squashed. 
 * Some of the country labels are not the most useful without the full data set (e.g. "rest of Europe").
-* Choosing 2 years lost some information about when the changes occurred a comparison chart including 2015 (using the same code but adding 2015 to yrs_inc2) is available in *[this repo folder](https://github.com/kevans22/Datavis_travel/tree/main/documents)*.
+* Choosing 2 years lost some information about when the changes occurred a comparison chart including 2015 (using the same code but adding 2015 to yrs_inc2) is available in [this repo folder](https://github.com/kevans22/Datavis_travel/tree/main/documents).
 
 
-If there was more time and access to the full data set for the IPS since 1961 I would have liked to create an interactive dashboard of the ranked travel data. This would allow people to type in their countries of interest and see longer term trends. This could also allow people who are interested to click on the position to see the actual number of visits. An example of this is provided by the ONS on *[100 years of baby names](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/articles/babynamessince1904howhasyoursperformed/2016-09-02)*.
+If there was more time and access to the full data set for the IPS since 1961 I would have liked to create an interactive dashboard of the ranked travel data. This would allow people to type in their countries of interest and see longer term trends. This could also allow people who are interested to click on the position to see the actual number of visits. An example of this is provided by the ONS on [100 years of baby names](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/articles/babynamessince1904howhasyoursperformed/2016-09-02).
+
+
+##Overall have people in the UK changed their chosen travel destinations over time?
+From the two visualisations the travel choices in the UK apear to have remained relatively consistent in the UK. However there do appear to be some changes that would hopefully become more clear in the future. 
 
 # References
 
-* The **repo** for this project (including data, code, cookbook) is available online via *[gihub](https://github.com/kevans22/Datavis_travel/tree/main)*.
-* Access to the **raw data** is available from the ONS (link above) and their *[ publication](https://www.ons.gov.uk/peoplepopulationandcommunity/leisureandtourism/articles/traveltrends/2021#visits-abroad-by-uk-residents)* (accessed 15th May 23) on travel data shows the range of data from the IPS. 
-* Geographic groupings were taken from *[this publication](https://www.ons.gov.uk/methodology/classificationsandstandards/otherclassifications/nationalstatisticscountryclassification)*
+* The **repo** for this project (including data, code, cookbook) is available online via [gihub](https://github.com/kevans22/Datavis_travel/tree/main).
+* Access to the **raw data** is available from the ONS (link above) and their [ publication](https://www.ons.gov.uk/peoplepopulationandcommunity/leisureandtourism/articles/traveltrends/2021#visits-abroad-by-uk-residents) (accessed 15th May 23) on travel data shows the range of data from the IPS. 
+* Geographic groupings were taken from [this publication](https://www.ons.gov.uk/methodology/classificationsandstandards/otherclassifications/nationalstatisticscountryclassification)
 
 Additionally all the different free R resources online and stackoverflow have been useful in producing these charts. 

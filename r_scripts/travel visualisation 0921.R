@@ -349,6 +349,6 @@ final <- p2+
          
 final
 
-#4.6.4. Save the dumbbell plot 
+#4.6.4. Save the plot 
 ggsave(here("plots", "finalplot.png"), final, width = 13.44, height = 8.595)
 
