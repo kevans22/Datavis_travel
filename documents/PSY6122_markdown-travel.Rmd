@@ -1,9 +1,9 @@
 ---
 title: "PSY6122 - Travel from the UK data visualisation"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
+  pdf_document: default
 date: "2023-05-15"
 editor_options:
   markdown:
@@ -310,34 +310,37 @@ v1 <- p1 +   #lines to show the years are connected
                   title = "Number of visits abroad from the UK in 2009 and 2021 by main country visited",
                   subtitle = subtitle1,
                   caption= "Source: Office for National Statistics International Passenger Survey") 
-
-#Display visualisation 1             
-v1
 ```
 
 ```{r,results="hide", message= FALSE, error=FALSE, warning=FALSE}
 #3.5. Save the dumbbell plot 
-ggsave(here("plots", "dumbell.png"), v1)
+ggsave(here("plots", "dumbell.png"), v1, width = 11.2, height = 7.163)
 
 ```
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics(here("plots", "dumbell.png"))
+```
+
+
 
 ### Interactive plot
 
 As I felt that this plot made reading the actual number difficult I entered it into ggplotly to allow for scrolling over points. This was useful but did make some of the formatting less clear. In this document I have commented the code to show this process and added a screenshot of the plot in action (please see [repo](https://github.com/kevans22/Datavis_travel/tree/main)).
 
-```{r}
+```{r, out.width="100%"}
 #3.6. Add the dumbbell to plotly to make it interactive
 
-#ip1 <- ggplotly(v1) #Use plotly for scrollover
+ip1 <- ggplotly(v1) #Use plotly for scrollover
 #Display interactive visualisation 1
-#ip1
+ip1
 
 #3.7. Save the interactive plot
-#saveWidget(ip1, file='interactivedumbell.html')
+saveWidget(ip1, file='interactivedumbell.html')
 
 #Image for markdown
-screen <- here("documents", "printscreen_ip1.png") #location of file 
-knitr::include_graphics(screen)
+#screen <- here("documents", "printscreen_ip1.png") #location of file 
+#knitr::include_graphics(screen)
 
 ```
 
@@ -524,15 +527,17 @@ final <- p2+
          panel.background = element_blank(), #Make the background blank
          legend.position = "none",#Remove the legend 
          plot.caption = element_text(size = 10, hjust = 1)) #Caption font 
-        
-         
-final
 
 ```
 
 ```{r,results="hide", message= FALSE, error=FALSE, warning=FALSE}
-#4.6.4. Save the dumbbell plot 
+#4.6.4. Save the final plot
 ggsave(here("plots", "finalplot.png"), final, width = 13.44, height = 8.595)
+```
+
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics(here("plots", "finalplot.png"))
 ```
 
 ### Interpretation - has there been a change in travel patterns?
