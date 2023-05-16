@@ -190,7 +190,7 @@ v1 <- p1 +   #lines to show the years are connected
 v1
 
 #3.5. Save the dumbbell plot 
-ggsave(here("plots", "dumbell.png"), v1)
+ggsave(here("plots", "dumbell.png"), v1, width = 11.2, height = 7.163)
 
 #3.6. Add the dumbbell to plotly to make it interactive
 
@@ -332,7 +332,7 @@ final <- p2+
   
          #Add labels
          labs(x = "Year", #X-axis
-              y = "Rank of visits from the UK (1=most visited)", #y-axis
+              y = "Rank visits from the UK (1 is the most visited)", #y-axis
               title = title2, #main title
               subtitle = str_wrap(subtitle2, width=150), #subtitle 
               caption= Source2) + #caption with each on a new line
