@@ -577,7 +577,7 @@ If there was more time and access to the full data set for the IPS since 1961 I 
 
 ## Overall have people in the UK changed their chosen travel destinations over time?
 
-From the two visualisations the travel choices in the UK apear to have remained relatively consistent in the UK. However there do appear to be some changes that would hopefully become more clear in the future. 
+From the two visualisations the travel choices in the UK appear to have remained relatively consistent in the UK. However there do appear to be some changes that would hopefully become more clear in the future. 
 
 # References
 
